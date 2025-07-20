@@ -7,3 +7,4 @@ venv/
 
 model/
 
+model/pytorch_model.bin
