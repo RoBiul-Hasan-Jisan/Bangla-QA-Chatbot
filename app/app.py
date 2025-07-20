@@ -5,9 +5,10 @@ import torch
 
 @st.cache_resource
 def load_model():
-    model_dir = "D:/Aimodel/model"  # Adjust path if needed
-    tokenizer = BertTokenizerFast.from_pretrained(model_dir)
-    model = BertForQuestionAnswering.from_pretrained(model_dir)
+    # Load directly from Hugging Face Hub
+    repo_id = "robiulhasanjisan88/Bangla-QA-BERT"
+    tokenizer = BertTokenizerFast.from_pretrained(repo_id)
+    model = BertForQuestionAnswering.from_pretrained(repo_id)
     model.eval()
     return tokenizer, model
 
@@ -75,7 +76,7 @@ div.stAlert.warning {
 </style>
 """, unsafe_allow_html=True)
 
-st.title(" Bangla QA Chatbot")
+st.title("Bangla QA Chatbot")
 st.write("বাংলা ভাষায় আপনার প্রশ্ন করুন এবং সঠিক উত্তর পান।")
 
 # Session state to keep Q&A history
@@ -97,13 +98,11 @@ with col2:
 
 if st.button("সাফ করুন"):
     st.session_state.history = []
-    # Remove st.experimental_rerun() since it's not available in your Streamlit version
-    # The app will rerun automatically on next interaction
 
 # Show Q&A history
 if st.session_state.history:
-    st.markdown("###  পূর্ববর্তী প্রশ্ন ও উত্তর")
-    for i, qa in enumerate(reversed(st.session_state.history[-10:])):
+    st.markdown("### পূর্ববর্তী প্রশ্ন ও উত্তর")
+    for qa in reversed(st.session_state.history[-10:]):
         st.markdown(f"**প্রশ্ন:** {qa['question']}")
         st.info(f"উত্তর: {qa['answer']}")
 
