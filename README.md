@@ -28,8 +28,8 @@ The chatbot can answer questions regarding:
 ## Example Questions
 - **রসায়ন কী?** (What is chemistry?)  
 - **রসায়নের জনক কে?** (Who is the father of chemistry?)  
-- **রসায়ন পাঠের গুরুত্ব কী?** (What is the importance of studying chemistry?)  
-- **গবেষণাগারে কী কী সতর্কতা অবলম্বন করতে হয়?** (What safety measures should be taken in the laboratory?)  
+- **রসায়ন পরীক্ষাগার কী?** (What is the importance of studying chemistry?)  
+- **সেফটি গগলস কেন ব্যবহার করা হয়?** (What safety measures should be taken in the laboratory?)  
 
 ## Limitations
 - The chatbot only answers questions based on the content of the trained chapter.  
